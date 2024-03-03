@@ -1,39 +1,44 @@
 <template>
   <div class="container-fluid">
     <div v-if="isAdmin" class="mb-5">
-      <button class="btn btn-lg btn-success" @click="addNewEvent">Add New Event</button>
+      <button class="btn btn-lg btn-success" @click="openModal('create')">
+        Add New Event
+      </button>
     </div>
     <div class="row">
       <div class="col" v-for="event in events">
-        <Event :isAdmin="isAdmin" :eventObj="event" @purchase="openModal" />
+        <Event
+          :isAdmin="isAdmin"
+          :eventObj="event"
+          @open="openModal"
+        />
       </div>
     </div>
   </div>
   <Teleport to="body">
-    <PaymentModal
-      :isAdmin="isAdmin"
+    <MainModal
+      v-if="isOpen"
       :eventName="currEventName"
-      :isNewEvent="isNewEvent"
-      v-if="displayPayment"
+      :type="reqType"
       @close="closeModal"
     />
   </Teleport>
 </template>
 <script>
-import PaymentModal from "./PaymentModal.vue";
+import MainModal from "./MainModal.vue";
 import Event from "./Event.vue";
 export default {
   name: "Events",
   components: {
     Event,
-    PaymentModal,
+    MainModal
   },
   data() {
-    return {
+    return {  
       isAdmin: true,
-      isNewEvent: false,
+      isOpen: false,
       currEventName: "",
-      displayPayment: false,
+      reqType: "",
       events: [
         {
           name: "Event 1",
@@ -57,25 +62,21 @@ export default {
     getAllEvents() {
       //use axios to fetch all events to display store in events data.
     },
-    openModal(eventName, isCreate) {
-      console.log(eventName);
-      if (isCreate){
-        this.isNewEvent=true;
+    openModal(event){
+      console.log(event);
+      if (!Array.isArray(event)){
+        this.reqType = event;
       }else{
-        this.isNewEvent=false;
-      }
-      this.currEventName = eventName;
-      this.displayPayment = true;
+        this.reqType=event[1];
+        this.currEventName = event[0];
+      }  
+      this.isOpen = true;
+      console.log(this.reqType);
     },
-    closeModal() {
-      this.displayPayment = false;
-    },
-    addNewEvent(){
-      this.openModal("", true);
+    closeModal(){
+      this.isOpen=false;
     }
   },
 };
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>
