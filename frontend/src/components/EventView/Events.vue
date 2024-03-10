@@ -35,7 +35,7 @@ export default {
   },
   data() {
     return {  
-      isAdmin: true,
+      isAdmin: false,
       isOpen: false,
       currEventName: "",
       reqType: "",
