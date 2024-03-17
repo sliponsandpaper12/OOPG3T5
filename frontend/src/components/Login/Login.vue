@@ -84,6 +84,8 @@
 </template>
 
 <script>
+import bcrypt from "bcryptjs";
+import axios from 'axios';
 export default {
   name: "Login",
   components: {},
@@ -94,10 +96,23 @@ export default {
     };
   },
   methods: {
-    processLogin() {
-      //authentication logic will go here
-      console.log(this.username);
-      console.log(this.password);
+    async processLogin() {
+      try {
+        // Hash the password using bcrypt
+        const hashedPassword = await bcrypt.hash(this.password, 0);
+
+        // Send the hashed password to your backend
+        const response = await axios.post(
+          "http://localhost:8080/user/login",
+          {
+            username: this.username,
+            password: hashedPassword,
+          }
+        );
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
     },
   },
 };

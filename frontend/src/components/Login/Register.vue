@@ -48,6 +48,18 @@
 
                   <div class="form-outline mb-4">
                     <input
+                      type="email"
+                      v-model="username"
+                      id="form2Example15"
+                      class="form-control form-control-lg"
+                    />
+                    <label class="form-label" for="form2Example15"
+                      >Username</label
+                    >
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input
                       type="password"
                       v-model="password"
                       id="form2Example27"
@@ -83,6 +95,8 @@
 </template>
 
 <script>
+import bcrypt from "bcryptjs";
+import axios from "axios";
 export default {
   name: "Register",
   components: {},
@@ -90,13 +104,31 @@ export default {
     return {
       emailAddress: "",
       password: "",
+      username: "",
     };
   },
   methods: {
-    processRegistration() {
-      //registration logic will go here
-      console.log(this.emailAddress);
-      console.log(this.password);
+    async processRegistration() {
+      try {
+        // Hash the password using bcrypt
+        const hashedPassword = await bcrypt.hash(this.password, 0);
+
+        // Send the hashed password to your backend
+        const response = await axios.post(
+          "http://localhost:8080/user/register",
+          {
+            username: this.username,
+            hashedPassword: hashedPassword,
+            accType: "C",
+            email: this.emailAddress,
+            bankBalance: "1000",
+          }
+        );
+
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
     },
   },
 };
