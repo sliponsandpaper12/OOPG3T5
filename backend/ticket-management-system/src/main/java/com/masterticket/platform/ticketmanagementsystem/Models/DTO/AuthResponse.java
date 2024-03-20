@@ -1,4 +1,4 @@
-package com.masterticket.platform.ticketmanagementsystem.Models.responses;
+package com.masterticket.platform.ticketmanagementsystem.Models.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

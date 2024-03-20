@@ -22,6 +22,7 @@ public class EventCategory {
     
     @Id
     @GeneratedValue
+    @Getter @Setter
     private Integer eventCategoryID;
 
     @Getter @Setter

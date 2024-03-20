@@ -4,11 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Table;
 import lombok.*;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-
-import java.util.*;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
