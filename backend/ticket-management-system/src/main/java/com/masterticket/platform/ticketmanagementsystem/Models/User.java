@@ -20,6 +20,7 @@ public class User {
     
     @Id
     @GeneratedValue
+    @Getter @Setter
     private Integer userID;
 
     @Getter @Setter

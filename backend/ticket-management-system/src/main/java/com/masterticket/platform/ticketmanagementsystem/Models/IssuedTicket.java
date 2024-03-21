@@ -20,6 +20,9 @@ public class IssuedTicket {
     private Integer ticketID;
 
     @Getter @Setter
+    private double price;
+    
+    @Getter @Setter
     @ManyToOne
     @JoinColumn(
         name= "bookingID"

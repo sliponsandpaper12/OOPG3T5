@@ -22,6 +22,7 @@ public class Booking {
     
     @Id
     @GeneratedValue
+    @Getter @Setter
     private Integer bookingID;
 
     @Getter @Setter
@@ -49,6 +50,9 @@ public class Booking {
     )
     @JsonBackReference
     private User user;
+
+    @Getter @Setter
+    private double amountPaid;
 
     @Getter @Setter
     private boolean isRefunded;
