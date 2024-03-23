@@ -80,4 +80,10 @@ public class EventService {
         }
         return new CancelEventResponseDTO(eventID, eventInDb.getName(), numTicketsRefunded, totalRefundAmt);
     }
+
+    public List<Event> findAll() {
+        // testing for CSV
+        // Will provide hardcoded data in main
+        return (List<Event>) eventRepo.findAll();
+    }
 }

@@ -15,16 +15,16 @@ public class UserController {
 
     private final UserService userService;
 
-    @PostMapping("/register")
-    @ResponseStatus(HttpStatus.CREATED)
-    public AuthResponse createUser(@RequestBody User user) {
+    // @PostMapping("/register")
+    // @ResponseStatus(HttpStatus.CREATED)
+    // public AuthResponse createUser(@RequestBody User user) {
         
-    }
+    // }
 
-    @PostMapping("/login")
-    @ResponseStatus(HttpStatus.OK)
-    public AuthResponse getUser(@RequestBody User user) {
+    // @PostMapping("/login")
+    // @ResponseStatus(HttpStatus.OK)
+    // public AuthResponse getUser(@RequestBody User user) {
 
-    }
+    // }
 
 }
