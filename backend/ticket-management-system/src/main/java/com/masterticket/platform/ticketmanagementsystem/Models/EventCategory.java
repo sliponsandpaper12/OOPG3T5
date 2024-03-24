@@ -26,6 +26,9 @@ public class EventCategory {
     private Integer eventCategoryID;
 
     @Getter @Setter
+    private char eventType;    
+
+    @Getter @Setter
     private char category;
 
     @Getter @Setter
