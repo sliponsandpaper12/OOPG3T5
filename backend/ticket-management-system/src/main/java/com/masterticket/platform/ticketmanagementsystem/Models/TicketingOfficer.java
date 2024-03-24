@@ -21,4 +21,8 @@ public class TicketingOfficer extends User{
     @JsonBackReference
     private Event event;
 
+    public TicketingOfficer(String username, String password, char type, Event event) {
+        super(username, password, type);
+        this.event = event;
+    }
 }
