@@ -39,6 +39,9 @@ public class Event {
 
     @Getter @Setter
     private boolean isCancelled;
+
+    @Getter @Setter
+    private int totalAvailableTickets;
     
     @Getter @Setter
     @OneToMany(

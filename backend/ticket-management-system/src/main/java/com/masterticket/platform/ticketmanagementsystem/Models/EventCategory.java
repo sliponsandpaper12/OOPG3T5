@@ -35,9 +35,6 @@ public class EventCategory {
     private int totalNumTickets;
 
     @Getter @Setter
-    private int totalNumTicketsSold;
-
-    @Getter @Setter
     private double cancellationFee;
 
     @Getter @Setter
@@ -56,11 +53,10 @@ public class EventCategory {
     private List<IssuedTicket> issuedTickets;
     
 
-    public EventCategory(char category, double price, int totalNumTickets, int totalNumTicketsSold, double cancellationFee){
+    public EventCategory(char category, double price, int totalNumTickets, double cancellationFee){
         this.category = category;
         this.price = price;
         this.totalNumTickets = totalNumTickets;
-        this.totalNumTicketsSold = totalNumTicketsSold;
         this.cancellationFee = cancellationFee;
     }
 

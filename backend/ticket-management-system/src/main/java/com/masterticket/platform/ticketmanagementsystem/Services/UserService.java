@@ -3,6 +3,8 @@ package com.masterticket.platform.ticketmanagementsystem.Services;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import com.masterticket.platform.ticketmanagementsystem.Models.Event;
+import com.masterticket.platform.ticketmanagementsystem.Models.User;
 import com.masterticket.platform.ticketmanagementsystem.Repo.UserRepo;
 
 @Service
@@ -19,5 +21,9 @@ public class UserService {
         }else{
             return false;
         }
+    }
+
+        public User getUserById(Integer userId){
+        return userRepo.getReferenceById(userId);
     }
 }

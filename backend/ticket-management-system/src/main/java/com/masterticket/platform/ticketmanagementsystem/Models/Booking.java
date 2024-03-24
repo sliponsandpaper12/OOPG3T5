@@ -57,8 +57,12 @@ public class Booking {
     @Getter @Setter
     private boolean isRefunded;
 
-    public Booking(LocalDateTime timestamp, boolean isRefunded){
-        this.timestamp = timestamp;
+    public Booking(Event event, List<IssuedTicket> tickers, User user, double amountPaid, boolean isRefunded){
+        this.timestamp = LocalDateTime.now();
+        this.event = event;
+        this.tickets = tickers;
+        this.user = user;
+        this.amountPaid = amountPaid;
         this.isRefunded = isRefunded;
     }
 }

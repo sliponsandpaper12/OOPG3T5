@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 
 import java.util.*;
 
+import com.masterticket.platform.ticketmanagementsystem.Models.Event;
 import com.masterticket.platform.ticketmanagementsystem.Models.IssuedTicket;
 
 @Service
@@ -15,6 +16,8 @@ import com.masterticket.platform.ticketmanagementsystem.Models.IssuedTicket;
 public class IssuedTicketService {
     
     private final IssuedTicketRepo issuedTicketRepo;
+
+    // public IssuedTicket creatIssuedTicket(Event event)
     
     public double getTotalPrice(List<IssuedTicket> tickets){
         double amt = 0.0;
@@ -23,4 +26,5 @@ public class IssuedTicketService {
         }
         return amt;
     }
+
 }
