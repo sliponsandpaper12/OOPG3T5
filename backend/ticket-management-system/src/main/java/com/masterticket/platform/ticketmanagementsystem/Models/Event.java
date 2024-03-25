@@ -23,6 +23,9 @@ public class Event {
     private Integer eventID;
 
     @Getter @Setter
+    private char eventType;
+
+    @Getter @Setter
     private String name;
 
     @Getter @Setter
