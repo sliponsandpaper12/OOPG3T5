@@ -16,4 +16,9 @@ public class Customer extends User {
     @Getter @Setter
     private double balance;
 
+    public Customer(String username, String password, char type, String email, double balance) {
+        super(username, password, type);
+        this.email = email;
+        this.balance = balance;
+    }
 }
