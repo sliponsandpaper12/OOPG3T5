@@ -24,7 +24,7 @@ public class UserService {
     }
 
     public AuthResponse login(LoginRequest loginRequest) {
-        if (userRepo.findByUsernameAndPassword(loginRequest.getUsername(), loginRequest.getPassword()).isPresent()) {
+        if (userRepo.findOneByUsernameAndPassword(loginRequest.getUsername(), loginRequest.getPassword()).isPresent()) {
             return new AuthResponse("Login successful!", true);
         }
         return new AuthResponse("Username or password is incorrect.", false);

@@ -1,12 +1,14 @@
 package com.masterticket.platform.ticketmanagementsystem.Models;
 
-import jakarta.persistence.*;
-import lombok.*;
-import java.util.*;
-
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Inheritance(strategy = InheritanceType.JOINED)
+import java.util.List;
+
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Entity
 @Table(name="user")
 @NoArgsConstructor
