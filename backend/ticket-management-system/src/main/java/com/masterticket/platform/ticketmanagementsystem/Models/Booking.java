@@ -62,3 +62,11 @@ public class Booking {
         this.isRefunded = isRefunded;
     }
 }
+
+// feeels like missing total cancellationFee
+// missing numberOfTickets
+//    @Getter @Setter
+//     private int numberOfTickets;
+
+//     @Getter @Setter
+//     private double cancellationFee;
