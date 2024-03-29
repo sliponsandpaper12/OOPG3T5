@@ -12,11 +12,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class BookingRequestDTO {
 
+    private Integer bookingID;
     private LocalDateTime timestamp;
     private Integer eventId;
     private Integer userId;
     private double amountPaid;
     private boolean isRefunded;
-    // private int numberOfTickets;
-    // private double cancellationFee;
+    private int numberOfTickets;
+    private double cancellationFee;
 }
