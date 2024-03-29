@@ -18,7 +18,6 @@ import java.util.*;
 public class EventCategoryService {
     
     private final EventCategoryRepo eventCategoryRepo;
-    private final IssuedTicketService issuedTicketService;
 
     public EventCategory toEventCategory(EventCategoryDTO eventCategoryDTO){
         var eventCategory = new EventCategory();
@@ -54,9 +53,33 @@ public class EventCategoryService {
     public Map<String, Double> getCategoryStatistics(EventCategory eventCategory){
         Map<String, Double> categoryStats = new HashMap<>();
         List<IssuedTicket> tickets = eventCategory.getIssuedTickets();
-        double totalAmt = issuedTicketService.getTotalPrice(tickets);
+        double totalAmt = getTotalPrice(tickets);
         categoryStats.put("numTicketsSold", (double)tickets.size());
         categoryStats.put("revenueEarned", totalAmt);
         return categoryStats;
+    }
+
+    public EventCategory getEventCategoryById(Integer eventCatId) {
+        return eventCategoryRepo.getReferenceById(eventCatId);
+    }
+
+    public Event getEventByEventCatId(Integer eventCatId) {
+        EventCategory eventCat = eventCategoryRepo.getReferenceById(eventCatId);
+        return eventCat.getEvent();
+    }
+
+    public double getTotalPrice(List<IssuedTicket> tickets){
+        double amt = 0.0;
+        for (IssuedTicket ticket: tickets){
+            amt += ticket.getPrice();
+        }
+        return amt;
+    }
+
+    public void sellTickets(Integer numOftickets, Integer eventCatId){
+        EventCategory eventCat = eventCategoryRepo.getReferenceById(eventCatId);
+        int currentSoldTickets = eventCat.getTotalNumTicketsSold();
+        eventCat.setTotalNumTicketsSold(currentSoldTickets + numOftickets);
+        eventCategoryRepo.save(eventCat);
     }
 }

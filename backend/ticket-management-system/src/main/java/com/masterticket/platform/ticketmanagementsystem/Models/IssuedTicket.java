@@ -17,6 +17,7 @@ public class IssuedTicket {
     
     @Id
     @GeneratedValue
+    @Getter @Setter
     private Integer ticketID;
 
     @Getter @Setter

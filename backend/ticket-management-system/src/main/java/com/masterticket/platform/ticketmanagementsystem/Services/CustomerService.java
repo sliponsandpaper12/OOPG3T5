@@ -38,4 +38,15 @@ public class CustomerService {
 
         return new AuthResponse("User has been created!", true);
     }
+
+    public Customer getCustomerById(Integer customerId){
+        return customerRepo.getReferenceById(customerId);
+    }
+
+    public void madePayment(Integer customerId, double paymentAmt){
+        Customer customer = customerRepo.getReferenceById(customerId);
+        double balance = customer.getBalance();
+        customer.setBalance(balance - paymentAmt);
+        customerRepo.save(customer);
+    }
 }

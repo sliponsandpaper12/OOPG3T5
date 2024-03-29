@@ -1,6 +1,8 @@
 package com.masterticket.platform.ticketmanagementsystem.Services;
 
 import lombok.AllArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.*;
 import com.masterticket.platform.ticketmanagementsystem.Models.Booking;
@@ -19,7 +21,8 @@ public class EventService {
 
     private final EventRepo eventRepo;
     private final EventCategoryService eventCategoryService;
-    private final BookingService bookingService;
+    @Autowired
+    private BookingService bookingService;
 
     public Event toEvent(EventDTO eventDTO) {
         var event = new Event();
@@ -79,5 +82,9 @@ public class EventService {
             totalRefundAmt += refundBookingResult[0];
         }
         return new CancelEventResponseDTO(eventID, eventInDb.getName(), numTicketsRefunded, totalRefundAmt);
+    }
+
+    public Event getEventById(Integer eventId) {
+        return eventRepo.getReferenceById(eventId);
     }
 }
