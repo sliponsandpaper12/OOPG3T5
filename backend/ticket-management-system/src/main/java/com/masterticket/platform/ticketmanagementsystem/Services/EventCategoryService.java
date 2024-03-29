@@ -25,7 +25,8 @@ public class EventCategoryService {
         eventCategory.setCategory(eventCategoryDTO.category());
         eventCategory.setPrice(eventCategoryDTO.price());
         eventCategory.setTotalNumTickets(eventCategoryDTO.totalNumTickets());
-        
+        // eventCategory.setEventType(eventCategoryDTO.eventType()); // add?
+
         var event = new Event();
         event.setEventID(eventCategoryDTO.eventID());
         eventCategory.setEvent(event);

@@ -5,6 +5,7 @@ public record EventCategoryDTO(
     double price,
     int totalNumTickets,
     int eventID
+    // String eventType  // this needed?
 ) {
     
 }
