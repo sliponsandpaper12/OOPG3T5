@@ -19,5 +19,4 @@ public class BookingRequestDTO {
     private double amountPaid;
     private boolean isRefunded;
     private int numberOfTickets;
-    private double cancellationFee;
 }
