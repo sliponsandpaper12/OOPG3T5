@@ -17,8 +17,6 @@ public class BookingService {
         if (bookingDTO.getNumberOfTickets() > 5) {
             throw new IllegalArgumentException("Cannot book more than 5 tickets (including accompanying guests) per booking.");
         }
-        
-        // Logic to check ticket availability against the event category,
         // create the booking, issue the tickets, and update the event category's tickets sold count.
         
         return new BookingResponseDTO(/* Details of the booking */);

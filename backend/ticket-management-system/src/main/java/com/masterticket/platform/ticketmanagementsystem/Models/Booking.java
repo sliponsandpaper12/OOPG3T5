@@ -57,6 +57,9 @@ public class Booking {
     @Getter @Setter
     private boolean isRefunded;
 
+    @Getter @Setter
+    private int numberOfTickets;
+
     public Booking(LocalDateTime timestamp, boolean isRefunded){
         this.timestamp = timestamp;
         this.isRefunded = isRefunded;
@@ -65,8 +68,7 @@ public class Booking {
 
 // feeels like missing total cancellationFee
 // missing numberOfTickets
-//    @Getter @Setter
-//     private int numberOfTickets;
+
 
 //     @Getter @Setter
 //     private double cancellationFee;
